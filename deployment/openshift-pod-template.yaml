@@ -35,7 +35,7 @@ spec:
         - name: kaniko-secret
           mountPath: /tekton/home/.docker
     - name: openshift-cli
-      image: nexweb1/cli:latest
+      image: kskyj/cli:latest
       imagePullPolicy: Always
       command:
         - sleep
