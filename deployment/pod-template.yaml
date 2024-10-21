@@ -18,12 +18,7 @@ spec:
       image: lachlanevenson/k8s-kubectl
       imagePullPolicy: Always     
       command: ["cat"]
-      tty: true
-    - name: scanner
-      image: newtmitch/sonar-scanner
-      imagePullPolicy: Always
-      command: ["cat"]
-      tty: true   
+      tty: true 
     - name: buildah
       image: quay.io/buildah/stable
       command:
@@ -39,15 +34,6 @@ spec:
       env:
       - name: DOCKER_CONFIG
         value: /tekton/home/.docker  
-    - name: kaniko
-      image: gcr.io/kaniko-project/executor:debug
-      imagePullPolicy: Always
-      command: ["cat"]
-      tty: true
-      volumeMounts:
-        - name: docker-credentials
-          mountPath: /kaniko/.docker 
-
   volumes:
     - name: varlibcontainers
       emptyDir: {}
